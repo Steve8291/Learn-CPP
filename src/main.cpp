@@ -18,3 +18,6 @@ void loop() {
   // Wait for 2 seconds before repeating the loop
   delay(2000); 
 }
+
+// Assignment: Create your name in block letters using Serial.print() and Serial.println() functions.
+// You can use spaces and new lines to format your name as you like. For example:
