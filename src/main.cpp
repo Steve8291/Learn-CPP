@@ -8,10 +8,13 @@ void setup() {
 void loop() {
   // Print "Hello World!" to the Serial Monitor
   Serial.println("Hello World!");
-  Serial.println("Welcome to C++ programming on ESP32!");
-  Serial.print("Harmony School\n is learning C++ and ESP32 development. ");
+  Serial.print("Welcome to ");
+  Serial.println("My WORLD!!");
+  Serial.println("");
+  Serial.println("C++ programming on ESP32!");
+  Serial.print("Harmony School\nAwesome!\n\n");
 
 
-  // Wait for one second
-  delay(1000); 
+  // Wait for 2 seconds before repeating the loop
+  delay(2000); 
 }
