@@ -39,6 +39,7 @@ void setup() {
     // ESP32 standard baud rate is 115200
     Serial.begin(115200); 
     delay(1000); // Give the serial monitor time to connect
+    clearBuffer(); // Clear any initial garbage data from the buffer
 
     isProgramRunning = true;
 
@@ -53,24 +54,25 @@ void loop() {
         userName.trim(); // Remove any trailing whitespace or carriage returns
         Serial.printf("Hello, %s!\n", userName.c_str()); // Using printf (cool ESP32 feature)
         Serial.println("What is your first initial?");
+        clearBuffer();
     }
 
     // Step 2: Read Char
     else if (Serial.available() > 0 && userInitial == '\0' && userName != "") {
         userInitial = Serial.read();
-        clearBuffer(); 
         Serial.print("Initial stored as: ");
         Serial.println(userInitial);
         Serial.println("How old are you?");
+        clearBuffer(); 
     }
 
     // Step 3: Read Int
     else if (Serial.available() > 0 && userAge == 0 && userInitial != '\0') {
         userAge = Serial.parseInt();
-        clearBuffer();
         Serial.print("Age stored: ");
         Serial.println(userAge);
         Serial.println("How tall are you in meters? (e.g., 1.82)");
+        clearBuffer(); 
     }
 
     // Step 4: Read Float
