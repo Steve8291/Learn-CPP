@@ -22,7 +22,10 @@ void clearBuffer() {
 
 void printSummary() {
     Serial.println("\n--- Data Summary ---");
-    Serial.printf("User: %s (%c)\n", userName.c_str(), userInitial);
+    Serial.print("User: ");
+    Serial.print(userName);
+    Serial.print(" ");
+    Serial.println(userInitial);
     Serial.printf("Age: %d years\n", userAge);
     Serial.printf("Height: %.2f meters\n", userHeight);
   
@@ -39,7 +42,6 @@ void setup() {
     // ESP32 standard baud rate is 115200
     Serial.begin(115200); 
     delay(1000); // Give the serial monitor time to connect
-    clearBuffer(); // Clear any initial garbage data from the buffer
 
     isProgramRunning = true;
 
@@ -54,25 +56,24 @@ void loop() {
         userName.trim(); // Remove any trailing whitespace or carriage returns
         Serial.printf("Hello, %s!\n", userName.c_str()); // Using printf (cool ESP32 feature)
         Serial.println("What is your first initial?");
-        clearBuffer();
     }
 
     // Step 2: Read Char
     else if (Serial.available() > 0 && userInitial == '\0' && userName != "") {
         userInitial = Serial.read();
+        clearBuffer(); 
         Serial.print("Initial stored as: ");
         Serial.println(userInitial);
         Serial.println("How old are you?");
-        clearBuffer(); 
     }
 
     // Step 3: Read Int
     else if (Serial.available() > 0 && userAge == 0 && userInitial != '\0') {
         userAge = Serial.parseInt();
+        clearBuffer();
         Serial.print("Age stored: ");
         Serial.println(userAge);
         Serial.println("How tall are you in meters? (e.g., 1.82)");
-        clearBuffer(); 
     }
 
     // Step 4: Read Float
