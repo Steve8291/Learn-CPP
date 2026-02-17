@@ -9,11 +9,11 @@
 #include <Arduino.h>
 
 // Global Variables
-int userAge;           // 32-bit on ESP32 (-2,147,483,648 to 2,147,483,647)
-float userHeight;      // 32-bit decimal
-char userInitial;      // Single character
+int userAge;           // Integers: whole numbers like 0, 1, -5, 42, etc.
+float userHeight;      // Decimal numbers: 3.14, 1.82, etc.
+char userInitial;      // Single character: 'A', '@', '3', etc.
 bool isProgramRunning; // true/false
-String userName;       // Dynamic string object
+String userName;       // Dynamic string object: "Hello World", "ESP32", etc.
 
 
 void clearBuffer() {
@@ -30,8 +30,8 @@ void printSummary() {
         Serial.println("Status: ESP32 logic active.");
     }
     
-    Serial.println("\nRestarting in 5 seconds...");
-    delay(5000);
+    Serial.println("\nRestarting in 10 seconds...");
+    delay(10000);
     ESP.restart(); // Unique ESP32 command to reboot the chip
 }
 

@@ -9,11 +9,11 @@
 #include <Arduino.h>
 
 // Global Variables
-int userAge;           // 32-bit on ESP32 (-2,147,483,648 to 2,147,483,647)
-float userHeight;      // 32-bit decimal
-char userInitial;      // Single character
+int userAge;           // Integers: whole numbers like 0, 1, -5, 42, etc.
+float userHeight;      // Decimal numbers: 3.14, 1.82, etc.
+char userInitial;      // Single character: 'A', '@', '3', etc.
 bool isProgramRunning; // true/false
-String userName;       // Dynamic string object
+String userName;       // Dynamic string object: "Hello World", "ESP32", etc.
 
 
 void clearBuffer() {
@@ -22,7 +22,10 @@ void clearBuffer() {
 
 void printSummary() {
     Serial.println("\n--- Data Summary ---");
-    Serial.printf("User: %s (%c)\n", userName.c_str(), userInitial);
+    Serial.print("User: ");
+    Serial.print(userName);
+    Serial.print(" ");
+    Serial.println(userInitial);
     Serial.printf("Age: %d years\n", userAge);
     Serial.printf("Height: %.2f meters\n", userHeight);
   
@@ -30,8 +33,8 @@ void printSummary() {
         Serial.println("Status: ESP32 logic active.");
     }
     
-    Serial.println("\nRestarting in 5 seconds...");
-    delay(5000);
+    Serial.println("\nRestarting in 10 seconds...");
+    delay(10000);
     ESP.restart(); // Unique ESP32 command to reboot the chip
 }
 
@@ -80,3 +83,20 @@ void loop() {
         printSummary();
     }
 }
+
+/*
+Assignment: Write a program to calculate how old a dog is in "dog years".
+
+Dogs mature at a faster rate than human beings. 
+If you own a dog, you might’ve heard this rule: one year for Snoopy equals seven years for you. 
+Turns out, the math isn’t that simple. Dogs mature more quickly than we do early on.
+
+Here’s how we can convert your dog’s age into human years:
+
+   * The first two years of a dog’s life count as 21 human years.
+   * Each following year counts as 4 human years.
+
+So a one-year-old dog is 10.5 years old in human years, and a two-year-old dog is 21 years old in human years… 
+
+Write a C++ program called dog_years.cpp to calculate the age, in human years, of any dog older than 2.
+*/
