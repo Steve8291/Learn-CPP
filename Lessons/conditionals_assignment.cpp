@@ -29,21 +29,3 @@ if (Serial.available() > 0) {
     // Clear Serial Buffer
     // Ask for new grade
 }
-
-
-
-
-
-}
-
-/*
-Assignment: Letter Grade Assigner
-Write a program that takes a numerical grade (0-100) as input and assigns a letter grade based on the following scale:
-90-100: A
-80-89: B
-70-79: C
-60-69: D
-0-59: F
-The program should also handle invalid input (e.g., numbers outside the 0-100 range) 
-and prompt the user to enter a valid grade. Use if-else, else if statements to implement the logic
-*/
