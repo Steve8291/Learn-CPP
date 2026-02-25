@@ -42,6 +42,7 @@ void setup() {
     // ESP32 standard baud rate is 115200
     Serial.begin(115200); 
     delay(1000); // Give the serial monitor time to connect
+    clearBuffer();
 
     isProgramRunning = true;
 
