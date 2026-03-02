@@ -24,6 +24,7 @@ void describePet(String animalType, String petName) {
     Serial.print(animalType);
     Serial.print("'s name is ");
     Serial.println(petName);
+    Serial.println();
 }
 
 // 4. Default Values
@@ -36,7 +37,7 @@ void describeCar(String model, String manufacturer, int speed = 100) {
     Serial.print(model);
     Serial.print(" goes ");
     Serial.print(speed);
-    Serial.println(" mph!");
+    Serial.println(" mph!\n");
 }
 
 // 5. Return Values
@@ -50,6 +51,8 @@ int addNumbers(int a, int b) {
     return a + b;
 }
 
+
+
 void setup() {
     Serial.begin(115200);
     delay(1000);
@@ -59,38 +62,27 @@ void setup() {
     
     greetUser();
 
-    sayHello("bobby bubbles");
+    sayHello("Alice");
 
-    Serial.println("\n________ Positional Parameters ________");
-    describePet("cat", "max");
+    describePet("cat", "Fluffy");
+    describePet("Harry", "Hamster"); // Oops, we switched the order of the arguments! This is why positional arguments can be tricky.
 
-    Serial.println("\n________ Order Matters ________");
-    describePet("hamster", "harry");
+    describeCar("Model S", "Tesla", 150);
+    describeCar("Civic", "Honda"); // This will use the default speed of 100 mph
 
-    Serial.println("\n________ Default Values ________");
-    describeCar("Prius", "Toyota");     // Uses default 100
-    describeCar("Bug", "VW", 60);      // Overwrites default with 60
+    String full_name = getFormattedName("John", "Doe");
+    Serial.println(full_name);
 
-    Serial.println("\n________ Return Values ________");
-    String musician = getFormattedName("katy", "perry");
-    Serial.println(musician);
-
-    Serial.println("\n_________ Return an int ________");
     int sum = addNumbers(5, 7);
     Serial.print("5 + 7 = ");
     Serial.println(sum);
+
+    Serial.println(addNumbers(10, 20)); // We can also print the result of a function directly without storing it in a variable first
+
 }
+
+
 
 void loop() {
-    // Leave empty so it doesn't repeat the prints forever
+    // Empty
 }
-
-/* Assignment: Traffic Light
-Build a traffic light controller using functions. 
-The traffic light should cycle through green, yellow, and red lights with appropriate delays. 
-Use functions to represent each light state and the transitions between them. For example:
-    void greenLight() {
-        // Code to turn on green light
-        delay(5000); // Green light for 5 seconds
-    }
-*/

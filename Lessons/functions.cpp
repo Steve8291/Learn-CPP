@@ -79,6 +79,9 @@ void setup() {
     int sum = addNumbers(5, 7);
     Serial.print("5 + 7 = ");
     Serial.println(sum);
+    // We can also print the result of a function directly.
+    Serial.println(addNumbers(10, 20));
+
 }
 
 void loop() {

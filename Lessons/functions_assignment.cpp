@@ -15,12 +15,6 @@ const int RED = 32;
 const int YELLOW = 33;
 const int GREEN = 25;
 
-void setup() {
-  pinMode(RED, OUTPUT);
-  pinMode(YELLOW, OUTPUT);
-  pinMode(GREEN, OUTPUT);
-}
-
 // A function that activates the light with a 2 parameters: 'light_pin' and 'duration'
 // This replaces repeating digitalWrite(pin, HIGH) everywhere
 // It should have a delay for the duration of the light, then turn it off
@@ -33,6 +27,12 @@ void setup() {
 // Use a for loop to repeat the flashing the correct number of times
 //  for(int i = 0; i < flashes; i++)
 
+
+void setup() {
+  pinMode(RED, OUTPUT);
+  pinMode(YELLOW, OUTPUT);
+  pinMode(GREEN, OUTPUT);
+}
 
 
 void loop() {
